@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komal Singh — Senior Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@0.6.0/dist/dotlottie-wc.js"></script>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-card: #0f1525;
+    --bg-card-2: #111929;
+    --border: rgba(148,163,184,0.12);
+    --cyan: #22d3ee;
+    --purple: #a78bfa;
+    --grad: linear-gradient(135deg, var(--cyan), var(--purple));
+    --white: #f1f5f9;
+    --gray: #8a95ab;
+    --gray-light: #b8c2d4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(10,14,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'JetBrains Mono', monospace; color: var(--cyan); font-weight: 600; font-size: 1.1rem; letter-spacing: 0.02em; }
+  nav .links { display: flex; gap: 2.5rem; }
+  nav a {
+    color: var(--gray-light); text-decoration: none;
+    font-size: 0.92rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--cyan); }
+
+  section { padding: 4.5rem 4rem; max-width: 1280px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem; display: block;
+  }
+
+  /* PILL-STYLE SECTION LABEL (new reference layout) */
+  .pill-label {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    border: 1.5px solid var(--cyan); border-radius: 30px;
+    padding: 0.4rem 1.2rem; margin-bottom: 2.2rem;
+    font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 600;
+  }
+  .pill-label .accent { color: var(--cyan); }
+  .pill-label .plain { color: var(--white); }
+
+  /* ABOUT V2 */
+  .about-v2 { display: flex; align-items: center; gap: 3.5rem; flex-wrap: wrap; }
+  .about-v2-left { flex: 0 0 auto; }
+  .about-v2-name { font-family: 'Sora', sans-serif; font-size: 2.6rem; font-weight: 800; line-height: 1.15; }
+  .about-v2-name .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .about-v2-right { flex: 1; min-width: 320px; }
+  .about-v2-right p { color: var(--gray-light); font-size: 1.02rem; line-height: 1.8; }
+  .about-v2-right strong { color: var(--cyan); font-weight: 700; }
+  .about-v2-actions { display: flex; align-items: center; gap: 1rem; margin-top: 1.6rem; flex-wrap: wrap; }
+  .about-v2-socials { display: flex; gap: 0.8rem; }
+  .about-v2-socials a {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1.5px solid var(--border); color: var(--gray-light);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .about-v2-socials a:hover { border-color: var(--cyan); color: var(--cyan); }
+  .about-v2-socials svg { width: 18px; height: 18px; }
+
+  /* SKILLS V2 */
+  .skills-v2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .skills-v2-col { padding: 0 2rem; border-left: 1px solid var(--border); }
+  .skills-v2-col:first-child { border-left: none; padding-left: 0; }
+  .skills-v2-col h4 {
+    font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 800;
+    line-height: 1.3; margin-bottom: 1.6rem;
+  }
+  .skills-v2-col h4 .accent { color: var(--cyan); }
+  .skill-logo-item { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.3rem; }
+  .skill-logo-badge {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; padding: 9px;
+  }
+  .skill-logo-badge img { width: 100%; height: 100%; object-fit: contain; }
+  .skill-logo-item span { font-weight: 600; font-size: 0.96rem; color: var(--white); }
+  .methods-list { list-style: none; }
+  .methods-list li {
+    color: var(--gray-light); font-size: 0.93rem;
+    padding: 0.35rem 0; position: relative; padding-left: 1.1rem;
+  }
+  .methods-list li::before { content: '•'; color: var(--cyan); position: absolute; left: 0; font-size: 1.1em; }
+
+  /* EXPERIENCE V2 (Education + Experience two columns) */
+  .exp-v2-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 3.5rem; }
+  .exp-v2-col h3 {
+    font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800;
+    margin-bottom: 1.8rem; letter-spacing: 0.02em;
+  }
+  .exp-v2-entry { display: flex; gap: 1.1rem; margin-bottom: 1.8rem; }
+  .exp-v2-logo {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; padding: 10px; overflow: hidden;
+  }
+  .exp-v2-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .exp-v2-logo.initials { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--cyan); padding: 0; }
+  .exp-v2-body .title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.15rem; }
+  .exp-v2-body .sub { color: var(--cyan); font-weight: 600; font-size: 0.88rem; margin-bottom: 0.5rem; }
+  .exp-v2-body .desc { color: var(--gray-light); font-size: 0.88rem; line-height: 1.65; }
+  .exp-v2-body .desc .stat { color: var(--cyan); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .skills-v2-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .skills-v2-col { border-left: none; padding: 0; }
+    .exp-v2-grid { grid-template-columns: 1fr; }
+    .about-v2 { flex-direction: column; text-align: center; }
+    .about-v2-socials { justify-content: center; }
+    .about-v2-actions { justify-content: center; }
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding-top: 6rem;
+  }
+  .orbit-wrap { position: relative; width: 440px; height: 440px; margin-bottom: 2rem; }
+  .profile-photo-ring {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 260px; height: 260px; border-radius: 50%;
+    border: 3px solid var(--cyan);
+    box-shadow: 0 0 50px rgba(34,211,238,0.3);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-card);
+  }
+  .profile-photo-ring img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-placeholder { color: var(--gray); font-size: 0.7rem; text-align: center; padding: 1rem; line-height: 1.4; }
+  .orbit-dot {
+    position: absolute;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    animation: orbitfloat 4s ease-in-out infinite;
+  }
+  .orbit-dot .lbl {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    font-size: 0.62rem; color: var(--gray); margin-top: 4px; white-space: nowrap;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  @keyframes orbitfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .od-1 { top: 10px; left: 40px; animation-delay: 0s; }
+  .od-2 { top: 20px; right: 20px; animation-delay: 0.5s; }
+  .od-3 { top: 130px; right: -10px; animation-delay: 1s; }
+  .od-4 { bottom: 80px; right: 10px; animation-delay: 1.5s; }
+  .od-5 { bottom: 10px; left: 90px; animation-delay: 2s; }
+  .od-6 { top: 130px; left: -10px; animation-delay: 2.5s; }
+
+  .avail-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 30px; padding: 0.5rem 1.1rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--gray-light);
+    margin-bottom: 1.5rem;
+  }
+  .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink2 1.8s ease-in-out infinite; }
+  @keyframes blink2 { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-name {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+    font-weight: 800; line-height: 1.05;
+    margin-bottom: 1.2rem;
+  }
+  .hero-name .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-role {
+    font-family: 'Sora', sans-serif; font-style: italic;
+    font-size: 1.3rem; color: var(--gray-light); margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .hero-desc { max-width: 620px; color: var(--gray-light); font-size: 1.02rem; line-height: 1.75; margin-bottom: 2.2rem; }
+
+  .hero-ctas { display: flex; gap: 1rem; margin-bottom: 2rem; }
+  .btn-primary {
+    background: var(--cyan); color: #06222a;
+    padding: 0.8rem 1.8rem; border-radius: 8px;
+    font-weight: 700; font-size: 0.92rem; text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,211,238,0.3); }
+  .btn-outline {
+    border: 1.5px solid var(--border); color: var(--white);
+    padding: 0.8rem 1.8rem; border-radius: 8px;
+    font-weight: 600; font-size: 0.92rem; text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--cyan); background: rgba(34,211,238,0.06); }
+
+  .hero-socials { display: flex; gap: 1.2rem; }
+  .hero-socials a { color: var(--gray); transition: color 0.2s; }
+  .hero-socials a:hover { color: var(--cyan); }
+  .hero-socials svg { width: 22px; height: 22px; }
+
+  /* SKILLS */
+  #skills { border-top: 1px solid var(--border); }
+  .section-head { max-width: 640px; margin-bottom: 2.5rem; }
+  .section-head h2 { font-family: 'Sora', sans-serif; font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; }
+  .section-head p { color: var(--gray-light); font-size: 1rem; line-height: 1.7; }
+
+  .filter-tabs { display: flex; gap: 0.7rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .ftab {
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--gray-light); padding: 0.55rem 1.3rem;
+    border-radius: 30px; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .ftab.active { background: var(--cyan); color: #06222a; border-color: var(--cyan); }
+  .ftab:hover:not(.active) { border-color: var(--cyan); color: var(--cyan); }
+
+  .skill-chips { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .chip {
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    color: var(--white); padding: 0.65rem 1.3rem;
+    border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .chip:hover { border-color: var(--cyan); }
+  .chip.hidden-chip { display: none; }
+
+  /* CURRENTLY BUILDING SPOTLIGHT */
+  .spotlight-banner {
+    background: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(167,139,250,0.08));
+    border: 1px solid rgba(34,211,238,0.25);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    margin-bottom: 3.5rem;
+    display: flex; align-items: center; gap: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .spotlight-banner::before {
+    content: '';
+    position: absolute; top: -50%; right: -10%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(167,139,250,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .spotlight-pulse-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;
+    color: var(--cyan); background: rgba(34,211,238,0.1);
+    border: 1px solid rgba(34,211,238,0.3);
+    padding: 0.35rem 0.9rem; border-radius: 30px;
+    margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .spotlight-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: blink2 1.6s ease-in-out infinite; }
+  .spotlight-content { flex: 1; }
+  .spotlight-content h3 { font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 800; margin-bottom: 0.7rem; }
+  .spotlight-content h3 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .spotlight-content p { color: var(--gray-light); font-size: 0.95rem; line-height: 1.7; max-width: 620px; margin-bottom: 1rem; }
+  .spotlight-features { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .spotlight-feat {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;
+    color: var(--gray-light); border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem; border-radius: 6px;
+  }
+  .spotlight-icon {
+    width: 90px; height: 90px; border-radius: 20px;
+    background: var(--grad);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.4rem; flex-shrink: 0;
+    box-shadow: 0 12px 32px rgba(34,211,238,0.25);
+  }
+  @media (max-width: 900px) {
+    .spotlight-banner { flex-direction: column; text-align: center; padding: 2rem; }
+    .spotlight-features { justify-content: center; }
+  }
+
+  /* PROJECTS */
+  #projects { border-top: 1px solid var(--border); }
+  .project-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+    display: grid; grid-template-columns: 1fr 200px; gap: 2rem; align-items: center;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: rgba(34,211,238,0.3); }
+  .project-desc { color: var(--gray-light); font-size: 0.96rem; line-height: 1.7; margin-bottom: 1.2rem; }
+  .project-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  .ptag {
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid var(--border); color: var(--gray-light);
+    padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.76rem;
+  }
+  .project-btns { display: flex; gap: 0.8rem; }
+  .pbtn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.6rem 1.2rem; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 700; text-decoration: none;
+  }
+  .pbtn.solid { background: var(--cyan); color: #06222a; }
+  .pbtn.outline { border: 1.5px solid var(--border); color: var(--white); }
+  .pbtn.outline:hover { border-color: var(--cyan); color: var(--cyan); }
+  .pbtn.disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .project-thumb {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: var(--bg-card-2); border: 2px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 0.4rem;
+    position: relative; overflow: hidden;
+  }
+  .project-thumb .bg-pattern {
+    position: absolute; inset: 0; opacity: 0.5;
+  }
+  .project-thumb .icon, .project-thumb .name { position: relative; z-index: 1; }
+  .project-thumb .name { text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+  .thumb-mortgage .bg-pattern { background:
+    radial-gradient(circle at 30% 20%, rgba(34,211,238,0.35), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(167,139,250,0.3), transparent 50%),
+    repeating-linear-gradient(115deg, rgba(34,211,238,0.08) 0px, transparent 2px, transparent 14px);
+  }
+  .thumb-healthcare .bg-pattern { background:
+    radial-gradient(circle at 70% 25%, rgba(34,211,238,0.3), transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(74,222,128,0.25), transparent 50%),
+    repeating-linear-gradient(60deg, rgba(74,222,128,0.07) 0px, transparent 2px, transparent 16px);
+  }
+  .thumb-sentiment .bg-pattern { background:
+    radial-gradient(circle at 50% 30%, rgba(167,139,250,0.35), transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(34,211,238,0.2), transparent 50%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 18px, rgba(167,139,250,0.06) 19px);
+  }
+  .thumb-ai .bg-pattern { background:
+    radial-gradient(circle at 35% 65%, rgba(34,211,238,0.35), transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(167,139,250,0.3), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(34,211,238,0.06) 0px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(90deg, rgba(34,211,238,0.06) 0px, transparent 1px, transparent 10px);
+  }
+  .project-thumb .icon { font-size: 2.2rem; }
+  .project-thumb .name { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.92rem; color: var(--white); padding: 0 1rem; }
+
+  .coming-tag {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.4);
+    color: var(--purple); font-size: 0.7rem; padding: 0.2rem 0.7rem;
+    border-radius: 6px; margin-left: 0.6rem;
+  }
+
+  /* EXPERIENCE */
+  #experience { border-top: 1px solid var(--border); }
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 19px; top: 10px; bottom: 10px;
+    width: 1.5px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-icon {
+    position: absolute; left: -3rem; top: 0;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: var(--cyan);
+  }
+  .tl-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.6rem 1.8rem;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+  }
+  .tl-role { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .tl-co { color: var(--cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.7rem; }
+  .tl-desc { color: var(--gray-light); font-size: 0.9rem; line-height: 1.65; }
+  .tl-period {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    color: var(--gray-light); font-size: 0.76rem;
+    padding: 0.4rem 0.8rem; border-radius: 6px; white-space: nowrap;
+  }
+
+  /* CONTACT */
+  #contact { border-top: 1px solid var(--border); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+  }
+  .contact-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--bg-card-2); display: flex; align-items: center; justify-content: center;
+    color: var(--cyan); flex-shrink: 0;
+  }
+  .contact-icon svg { width: 19px; height: 19px; }
+  .contact-card .label { font-size: 0.75rem; color: var(--gray); margin-bottom: 0.1rem; }
+  .contact-card .val { font-size: 0.95rem; color: var(--white); font-weight: 600; }
+  .contact-card a { color: var(--white); text-decoration: none; }
+  .contact-card a:hover { color: var(--cyan); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group label { display: block; font-size: 0.85rem; color: var(--gray-light); margin-bottom: 0.5rem; font-weight: 600; }
+  .form-group input, .form-group textarea {
+    width: 100%; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.75rem 1rem; color: var(--white);
+    font-family: 'Inter', sans-serif; font-size: 0.92rem; outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--cyan); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .submit-btn {
+    background: var(--cyan); color: #06222a; border: none;
+    padding: 0.9rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    transition: transform 0.15s;
+  }
+  .submit-btn:hover { transform: translateY(-2px); }
+  .form-status { font-size: 0.85rem; margin-top: 0.5rem; }
+  .form-status.success { color: var(--cyan); }
+  .form-status.error { color: #f87171; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem; font-size: 0.85rem; color: var(--gray); font-family: 'JetBrains Mono', monospace; }
+
+  /* AI CHATBOT WIDGET */
+  #ai-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; }
+  .char-wrap { cursor: pointer; display: flex; flex-direction: column; align-items: center; position: relative; }
+  .char-bob { animation: bob 3s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  #ai-widget dotlottie-wc { width: 140px !important; height: 140px !important; display: block; }
+  .ai-bubble {
+    background: var(--white); border-radius: 14px 14px 4px 14px;
+    padding: 7px 12px; font-size: 12px; font-weight: 700; color: #06222a;
+    margin-bottom: 4px; white-space: nowrap; box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    animation: floaty 2.6s ease-in-out infinite; position: relative;
+  }
+  .ai-bubble::after { content: ''; position: absolute; bottom: -7px; right: 16px; border-left: 7px solid transparent; border-top: 7px solid var(--white); }
+  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  .ai-glow {
+    position: absolute; bottom: 0; width: 100px; height: 16px;
+    background: radial-gradient(ellipse, rgba(34,211,238,0.3), transparent 70%);
+    border-radius: 50%; animation: glowpulse 2.5s ease-in-out infinite;
+  }
+  @keyframes glowpulse { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
+  .ai-chat-panel {
+    position: absolute; bottom: 160px; right: 0; width: 320px;
+    background: var(--bg-card); border: 1px solid rgba(34,211,238,0.25);
+    border-radius: 16px; overflow: hidden; display: none; flex-direction: column;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+  .ai-chat-panel.open { display: flex; animation: panelIn 0.3s ease-out; }
+  @keyframes panelIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+  .ai-chat-header { background: var(--bg-card-2); border-bottom: 1px solid var(--border); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+  .ai-chat-header dotlottie-wc { width: 28px !important; height: 28px !important; }
+  .ai-chat-header-text { flex: 1; }
+  .ai-chat-header-text .name { font-weight: 700; font-size: 12.5px; color: var(--white); }
+  .ai-chat-header-text .sub { font-size: 10px; color: var(--gray); }
+  .ai-close-btn { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--gray); line-height: 1; padding: 4px; }
+  .ai-close-btn:hover { color: var(--cyan); }
+  .ai-chat-messages { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 9px; min-height: 180px; max-height: 260px; overflow-y: auto; }
+  .ai-msg { max-width: 85%; padding: 8px 12px; border-radius: 12px; font-size: 12.5px; line-height: 1.5; }
+  .ai-msg.bot { background: var(--bg-card-2); color: var(--gray-light); border-radius: 4px 12px 12px 12px; align-self: flex-start; }
+  .ai-msg.user { background: var(--cyan); color: #06222a; font-weight: 600; border-radius: 12px 4px 12px 12px; align-self: flex-end; }
+  .ai-typing { display: flex; gap: 4px; padding: 8px 12px; }
+  .ai-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: aiblink 1.2s infinite; }
+  .ai-dot:nth-child(2){animation-delay:0.2s} .ai-dot:nth-child(3){animation-delay:0.4s}
+  @keyframes aiblink { 0%,100%{opacity:0.2} 50%{opacity:1} }
+  .ai-quick-btns { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 10px; }
+  .ai-qbtn { background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius: 20px; padding: 4px 10px; font-size: 10.5px; color: var(--cyan); cursor: pointer; }
+  .ai-qbtn:hover { background: rgba(34,211,238,0.15); }
+  .ai-input-row { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); }
+  .ai-chat-input { flex: 1; background: var(--bg-card-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; color: var(--white); font-size: 12.5px; outline: none; }
+  .ai-chat-input::placeholder { color: var(--gray); }
+  .ai-send-btn { background: var(--cyan); border: none; border-radius: 8px; width: 34px; height: 34px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #06222a; font-weight: 700; }
+  .ai-send-btn:hover { background: #67e8f9; }
+  .ai-fallback-bot { width: 70px; height: 70px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 32px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav .links { display: none; }
+    section, #hero { padding: 4rem 1.5rem; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-thumb { width: 140px; height: 140px; margin: 0 auto; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .orbit-wrap { width: 300px; height: 300px; }
+    .profile-photo-ring { width: 170px; height: 170px; }
+    .orbit-dot { width: 46px; height: 46px; font-size: 1.1rem; }
+    #ai-widget { bottom: 16px; right: 16px; }
+    .ai-chat-panel { width: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">&lt;DA /&gt;</div>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orbit-wrap">
+    <div class="profile-photo-ring">
+      <div class="profile-placeholder">Upload your<br>photo here</div>
+    </div>
+    <div class="orbit-dot od-1">🐍<span class="lbl">Python</span></div>
+    <div class="orbit-dot od-2">📊<span class="lbl">Power BI</span></div>
+    <div class="orbit-dot od-3">⚙️<span class="lbl">dbt</span></div>
+    <div class="orbit-dot od-4">🗄️<span class="lbl">SQL</span></div>
+    <div class="orbit-dot od-5">📈<span class="lbl">Tableau</span></div>
+    <div class="orbit-dot od-6">🧠<span class="lbl">ML/AI</span></div>
+  </div>
+
+  <div class="avail-badge"><span class="avail-dot"></span> Available for new opportunities</div>
+
+  <h1 class="hero-name">Hi, I'm <span class="grad">Komal Singh</span></h1>
+  <div class="hero-role">Senior Data Analyst</div>
+  <p class="hero-desc">
+    I transform raw, messy data into clear decisions. 8+ years turning complex datasets into pipelines,
+    dashboards, and models that drive real business outcomes across supply chain, e-commerce, and fraud detection.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+
+  <div class="hero-socials">
+    <a href="https://github.com/data-viper" target="_blank" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.58.23 2.75.11 3.04.75.81 1.2 1.84 1.2 3.1 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.05.78 2.12v3.14c0 .3.21.65.78.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/komalsingh00116/" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+    </a>
+    <a href="mailto:komalsingh.16@outlook.com" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="pill-label"><span class="accent">About</span> <span class="plain">Me</span></div>
+  <div class="about-v2">
+    <div class="about-v2-left">
+      <div class="about-v2-name">Hello,<br>I'm <span class="grad">Komal!</span></div>
+    </div>
+    <div class="about-v2-right">
+      <p>
+        <strong>Senior Data Analyst</strong> with <strong>8+ years</strong> of experience across supply chain,
+        e-commerce, and fraud detection, with proven end-to-end delivery from requirements workshops through
+        executive dashboards. Proficient in <strong>SQL, Python, AWS, Snowflake, Power BI, Tableau, and Airflow/dbt</strong>
+        for comprehensive data pipeline development and visualization. Comfortable bridging business stakeholders
+        and technical teams, with effective communication and storytelling skills honed at Walmart and Amazon.
+      </p>
+      <div class="about-v2-actions">
+        <div class="about-v2-socials">
+          <a href="https://linkedin.com/in/komalsingh00116/" target="_blank" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+          <a href="mailto:komalsingh.16@outlook.com" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
+          <a href="https://github.com/data-viper" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.58.23 2.75.11 3.04.75.81 1.2 1.84 1.2 3.1 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.05.78 2.12v3.14c0 .3.21.65.78.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+        </div>
+        <a href="#projects" class="btn-outline">Projects</a>
+        <a href="Komal_Singh_Resume.pdf" target="_blank" class="btn-primary">Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="pill-label"><span class="plain">Technical</span> <span class="accent">Skills</span></div>
+
+  <div class="skills-v2-grid">
+    <div class="skills-v2-col">
+      <h4>Programming<br><span class="accent">Languages</span></h4>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/python/22d3ee" alt="Python"></div>
+        <span>Python</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/postgresql/22d3ee" alt="SQL"></div>
+        <span>SQL</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/oracle/22d3ee" alt="PL/SQL"></div>
+        <span>PL/SQL</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/scala/22d3ee" alt="Scala"></div>
+        <span>Scala</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/r/22d3ee" alt="R"></div>
+        <span>R</span>
+      </div>
+    </div>
+
+    <div class="skills-v2-col">
+      <h4>Data Analytic<br><span class="accent">Tools</span></h4>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/amazonaws/22d3ee" alt="AWS"></div>
+        <span>AWS (S3, Glue, Redshift)</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/snowflake/22d3ee" alt="Snowflake"></div>
+        <span>Snowflake</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/databricks/22d3ee" alt="Databricks"></div>
+        <span>Databricks</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/apacheairflow/22d3ee" alt="Airflow"></div>
+        <span>Airflow</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/dbt/22d3ee" alt="dbt"></div>
+        <span>dbt</span>
+      </div>
+    </div>
+
+    <div class="skills-v2-col">
+      <h4>Data Visualization<br><span class="accent">Tools</span></h4>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/powerbi/22d3ee" alt="Power BI"></div>
+        <span>Power BI</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/tableau/22d3ee" alt="Tableau"></div>
+        <span>Tableau</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/looker/22d3ee" alt="Looker Studio"></div>
+        <span>Looker Studio</span>
+      </div>
+      <div class="skill-logo-item">
+        <div class="skill-logo-badge"><img src="https://cdn.simpleicons.org/amazon/22d3ee" alt="QuickSight"></div>
+        <span>Amazon QuickSight</span>
+      </div>
+    </div>
+
+    <div class="skills-v2-col">
+      <h4>Data Analytic<br><span class="accent">Methods</span></h4>
+      <ul class="methods-list">
+        <li>EDA</li>
+        <li>Regression Analysis</li>
+        <li>Classification Models</li>
+        <li>A/B Testing</li>
+        <li>Fraud Detection</li>
+        <li>Anomaly Detection</li>
+        <li>Multi-Touch Attribution</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <span class="eyebrow">// Portfolio</span>
+  <div class="section-head">
+    <h2>Featured Projects</h2>
+    <p>Real-world analytics work — from mortgage risk models and healthcare pipelines to NLP and AI products.</p>
+  </div>
+
+  <div class="spotlight-banner">
+    <div class="spotlight-icon">🎯</div>
+    <div class="spotlight-content">
+      <div class="spotlight-pulse-badge"><span class="spotlight-pulse-dot"></span> Currently Building</div>
+      <h3>Picker — <span class="grad">AI-Powered Job Search Copilot</span></h3>
+      <p>
+        A SaaS tool helping job seekers move faster and smarter: optimizes resumes for each role, generates
+        personalized cover letters, drafts outreach emails, answers tricky application questionnaires, tracks
+        every application in one place, and includes a learning section on what to prepare for interviews.
+      </p>
+      <div class="spotlight-features">
+        <span class="spotlight-feat">Resume Optimization</span>
+        <span class="spotlight-feat">Cover Letters</span>
+        <span class="spotlight-feat">Email Drafting</span>
+        <span class="spotlight-feat">Application Tracker</span>
+        <span class="spotlight-feat">Interview Prep</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div>
+      <p class="project-desc">
+        An end-to-end analysis of 50,000 U.S. residential mortgages, classifying borrowers as default risk
+        vs. healthy using Logistic Regression, Classification Trees, and Naive Bayes. Flagged 31% of in-progress
+        mortgages as high-risk through a live Tableau dashboard.
+      </p>
+      <div class="project-tags">
+        <span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Tableau</span><span class="ptag">ML</span>
+      </div>
+      <div class="project-btns">
+        <a href="https://public.tableau.com/views/MORTGAGERISKANALYTICS-KomalSingh/Dashboard1" target="_blank" class="pbtn solid">📊 Dashboard</a>
+        <a href="https://github.com/data-viper/komal-portfolio" target="_blank" class="pbtn outline">🔗 Code</a>
+      </div>
+    </div>
+    <div class="project-thumb thumb-mortgage">
+      <div class="bg-pattern"></div>
+      <div class="icon">🏠</div>
+      <div class="name">Mortgage Risk Analytics</div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div>
+      <p class="project-desc">
+        A production-grade data engineering pipeline processing CMS healthcare datasets end-to-end. Orchestrated
+        with Apache Airflow (12 tasks), transformed through 9 dbt models across Bronze/Silver/Gold Medallion
+        Architecture, fully containerized with Docker and Postgres.
+      </p>
+      <div class="project-tags">
+        <span class="ptag">Airflow</span><span class="ptag">dbt</span><span class="ptag">Docker</span><span class="ptag">SQL</span>
+      </div>
+      <div class="project-btns">
+        <a href="#" class="pbtn solid">📊 Dashboard</a>
+        <a href="#" class="pbtn outline">🔗 Code</a>
+      </div>
+    </div>
+    <div class="project-thumb thumb-healthcare">
+      <div class="bg-pattern"></div>
+      <div class="icon">🏥</div>
+      <div class="name">Healthcare Data Pipeline</div>
+    </div>
+  </div>
+
+  <div class="project-card" style="opacity:0.7;">
+    <div>
+      <p class="project-desc">
+        An NLP-powered sentiment analysis project using patient review data — fine-tuned HuggingFace model,
+        topic modeling, and a live Streamlit app for interactive exploration of unstructured review text.
+      </p>
+      <div class="project-tags">
+        <span class="ptag">NLP</span><span class="ptag">HuggingFace</span><span class="ptag">Streamlit</span>
+      </div>
+      <div class="project-btns">
+        <span class="pbtn outline disabled">Coming Soon</span>
+      </div>
+    </div>
+    <div class="project-thumb thumb-sentiment">
+      <div class="bg-pattern"></div>
+      <div class="icon">💬</div>
+      <div class="name">Sentiment Analysis<span class="coming-tag">Soon</span></div>
+    </div>
+  </div>
+
+  <div class="project-card" style="opacity:0.85;">
+    <div>
+      <p class="project-desc">
+        A custom AI assistant trained on my own profile — resume, projects, FAQs — built with the Claude API
+        and a RAG-style architecture. Chat with it live on this very page! Built to deepen hands-on LLM and
+        agentic AI skills.
+      </p>
+      <div class="project-tags">
+        <span class="ptag">Claude API</span><span class="ptag">RAG</span><span class="ptag">Prompt Engineering</span>
+      </div>
+      <div class="project-btns">
+        <a href="https://github.com/data-viper/komal-chatbot-api" target="_blank" class="pbtn solid">🔗 Code</a>
+        <span class="pbtn outline disabled">Try it ↘ bottom right</span>
+      </div>
+    </div>
+    <div class="project-thumb thumb-ai">
+      <div class="bg-pattern"></div>
+      <div class="icon">🤖</div>
+      <div class="name">AI Portfolio Assistant<span class="coming-tag">Live</span></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="pill-label"><span class="plain">Education &amp; Experience</span> <span class="accent">Background</span></div>
+
+  <div class="exp-v2-grid">
+    <div class="exp-v2-col">
+      <h3>Education</h3>
+      <div class="exp-v2-entry">
+        <div class="exp-v2-logo initials">WU</div>
+        <div class="exp-v2-body">
+          <div class="title">Webster University</div>
+          <div class="sub">MS in Data Analytics (2024)</div>
+          <div class="desc">St. Louis, MO. Graduate coursework in statistical modeling, data engineering, and applied machine learning.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-v2-col">
+      <h3>Experience</h3>
+      <div class="exp-v2-entry">
+        <div class="exp-v2-logo"><img src="https://cdn.simpleicons.org/walmart/22d3ee" alt="Walmart"></div>
+        <div class="exp-v2-body">
+          <div class="title">Analytics Engineer</div>
+          <div class="sub">Walmart — Jan 2024 – Present</div>
+          <div class="desc">Embedded analytics engineer supporting a global supply chain data platform across 15+ business domains. Designed Medallion Architecture on AWS + Snowflake. <span class="stat">$5M compliance risk reduction</span>, data redundancy <span class="stat">-30%</span>.</div>
+        </div>
+      </div>
+      <div class="exp-v2-entry">
+        <div class="exp-v2-logo"><img src="https://cdn.simpleicons.org/amazon/22d3ee" alt="Amazon"></div>
+        <div class="exp-v2-body">
+          <div class="title">Senior Data Analyst</div>
+          <div class="sub">Amazon — Apr 2021 – Jul 2022</div>
+          <div class="desc">TRMS fraud detection and global marketplace MTA modeling. Fraud detection rate <span class="stat">+22%</span>, false positive rate <span class="stat">-28%</span>, investigation prep time <span class="stat">-65%</span>.</div>
+        </div>
+      </div>
+      <div class="exp-v2-entry">
+        <div class="exp-v2-logo"><img src="https://cdn.simpleicons.org/amazon/22d3ee" alt="Amazon"></div>
+        <div class="exp-v2-body">
+          <div class="title">Data Analyst</div>
+          <div class="sub">Amazon — Apr 2019 – Mar 2021</div>
+          <div class="desc">Supply chain analytics and fraud pipeline automation. Manual workflow automation <span class="stat">-45%</span> (6.5 FTE equivalent), supply chain discrepancies <span class="stat">-20%</span>.</div>
+        </div>
+      </div>
+      <div class="exp-v2-entry">
+        <div class="exp-v2-logo initials">RS</div>
+        <div class="exp-v2-body">
+          <div class="title">Data Analyst</div>
+          <div class="sub">Rolon Seals — Jan 2017 – Feb 2019</div>
+          <div class="desc">Sole data/IT analyst for a 15-vendor industrial supply chain operation. Migrated 30+ Excel files into centralized SQL database, built 12 Power BI dashboards.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="eyebrow">// Get in touch</span>
+  <div class="section-head">
+    <h2>Contact</h2>
+    <p>Open to new projects, collaborations, and full-time roles. Let's talk data.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div>
+      <div class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+        <div><div class="label">Email</div><div class="val"><a href="mailto:komalsingh.16@outlook.com">komalsingh.16@outlook.com</a></div></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="label">Location</div><div class="val">St. Charles, MO</div></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></div>
+        <div><div class="label">LinkedIn</div><div class="val"><a href="https://linkedin.com/in/komalsingh00116/" target="_blank">linkedin.com/in/komalsingh00116</a></div></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.9.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.58.23 2.75.11 3.04.75.81 1.2 1.84 1.2 3.1 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.05.78 2.12v3.14c0 .3.21.65.78.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg></div>
+        <div><div class="label">GitHub</div><div class="val"><a href="https://github.com/data-viper" target="_blank">github.com/data-viper</a></div></div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdlpgba" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration...">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">✉ Send Message</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
+<footer>© 2025 Komal Singh — Senior Data Analyst Portfolio</footer>
+
+<!-- AI CHATBOT WIDGET -->
+<div id="ai-widget">
+  <div class="ai-chat-panel" id="aiChatPanel">
+    <div class="ai-chat-header">
+      <div id="aiHeaderBotSlot"><div class="ai-fallback-bot" style="width:28px;height:28px;font-size:14px;">AI</div></div>
+      <div class="ai-chat-header-text">
+        <div class="name">Komal's AI Assistant</div>
+        <div class="sub">Ask me anything about Komal</div>
+      </div>
+      <button class="ai-close-btn" onclick="toggleAIChat()">✕</button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="ai-msg bot">Hey, thanks for checking out the portfolio! 👋 Komal wanted to say hi — he's a data practitioner with 8+ years of experience turning datasets into business insights, and he's always learning new things to keep growing. Ask me anything about him!</div>
+    </div>
+    <div class="ai-quick-btns">
+      <div class="ai-qbtn" onclick="aiAsk('Tell me about Walmart experience')">Walmart</div>
+      <div class="ai-qbtn" onclick="aiAsk('What are the top skills?')">Skills</div>
+      <div class="ai-qbtn" onclick="aiAsk('Walk me through a project')">Projects</div>
+      <div class="ai-qbtn" onclick="aiAsk('Is Komal open to work?')">Availability</div>
+    </div>
+    <div class="ai-input-row">
+      <input class="ai-chat-input" id="aiChatInput" placeholder="Type your question..." onkeydown="if(event.key==='Enter') aiSendMsg()" />
+      <button class="ai-send-btn" onclick="aiSendMsg()">→</button>
+    </div>
+  </div>
+
+  <div class="char-wrap" onclick="toggleAIChat()">
+    <div class="ai-bubble" id="aiBubble">Hi! Click me</div>
+    <div class="char-bob" id="aiCharSlot">
+      <div class="ai-fallback-bot">AI</div>
+    </div>
+    <div class="ai-glow"></div>
+  </div>
+</div>
+
+<script>
+  // Contact form submission via Formspree (AJAX so we can show inline status)
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById('formStatus');
+    const data = new FormData(form);
+
+    status.textContent = 'Sending...';
+    status.className = 'form-status';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        status.textContent = "Message sent! Komal will get back to you soon.";
+        status.className = 'form-status success';
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong. Please try emailing directly instead.";
+        status.className = 'form-status error';
+      }
+    } catch (error) {
+      status.textContent = "Something went wrong. Please try emailing directly instead.";
+      status.className = 'form-status error';
+    }
+  });
+
+  // Load Lottie robot mascot (falls back to gradient AI badge if it fails)
+  function aiTryLoadLottie() {
+    try {
+      const lottieUrl = "https://lottie.host/facdb8a9-921c-426d-a6b6-779e51b4df55/aHdFUOyGyd.lottie";
+      const charSlot = document.getElementById('aiCharSlot');
+      const headerSlot = document.getElementById('aiHeaderBotSlot');
+
+      const el1 = document.createElement('dotlottie-wc');
+      el1.setAttribute('src', lottieUrl);
+      el1.setAttribute('autoplay', '');
+      el1.setAttribute('loop', '');
+      el1.style.width = '140px';
+      el1.style.height = '140px';
+      el1.style.minWidth = '140px';
+      el1.style.minHeight = '140px';
+
+      const el2 = document.createElement('dotlottie-wc');
+      el2.setAttribute('src', lottieUrl);
+      el2.setAttribute('autoplay', '');
+      el2.setAttribute('loop', '');
+      el2.style.width = '28px';
+      el2.style.height = '28px';
+
+      charSlot.innerHTML = '';
+      charSlot.appendChild(el1);
+      headerSlot.innerHTML = '';
+      headerSlot.appendChild(el2);
+    } catch(e) {
+      console.log('Lottie failed, using fallback', e);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', aiTryLoadLottie);
+
+  // Chat logic — connects to real Claude API backend
+  const CHAT_API_URL = "https://komal-chatbot-api.vercel.app/api/chat";
+  let conversationHistory = [];
+
+  function toggleAIChat() {
+    document.getElementById('aiChatPanel').classList.toggle('open');
+  }
+  function aiAsk(q) {
+    document.getElementById('aiChatInput').value = q;
+    aiSendMsg();
+  }
+
+  async function aiSendMsg() {
+    const input = document.getElementById('aiChatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+
+    const messages = document.getElementById('aiChatMessages');
+
+    const userDiv = document.createElement('div');
+    userDiv.className = 'ai-msg user';
+    userDiv.textContent = msg;
+    messages.appendChild(userDiv);
+
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'ai-msg bot ai-typing';
+    typingDiv.innerHTML = '<div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div>';
+    messages.appendChild(typingDiv);
+    messages.scrollTop = messages.scrollHeight;
+
+    try {
+      const response = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, history: conversationHistory })
+      });
+
+      const data = await response.json();
+      typingDiv.remove();
+
+      const botDiv = document.createElement('div');
+      botDiv.className = 'ai-msg bot';
+      botDiv.textContent = data.reply || "Sorry, something went wrong. Please try again.";
+      messages.appendChild(botDiv);
+      messages.scrollTop = messages.scrollHeight;
+
+      conversationHistory.push({ role: 'user', content: msg });
+      conversationHistory.push({ role: 'assistant', content: data.reply || '' });
+      if (conversationHistory.length > 10) conversationHistory = conversationHistory.slice(-10);
+
+    } catch (error) {
+      console.error('Chat error:', error);
+      typingDiv.remove();
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'ai-msg bot';
+      errorDiv.textContent = "Sorry, I'm having trouble connecting right now. Please try again in a moment, or reach out to Komal directly via the Contact section.";
+      messages.appendChild(errorDiv);
+      messages.scrollTop = messages.scrollHeight;
+    }
+  }
+</script>
+
+</body>
+</html>
