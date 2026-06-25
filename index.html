@@ -550,18 +550,9 @@
   .dag-close { background: none; border: none; color: var(--gray); font-size: 1.4rem; cursor: pointer; }
   .dag-close:hover { color: var(--cyan); }
   .thumb-dag {
-    background-image: url('airflow_dag.png');
-    background-size: cover; background-position: center;
-    cursor: pointer; position: relative;
+    cursor: pointer;
   }
-  .thumb-dag::after {
-    content: '🔍 expand';
-    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-    font-size: 0.62rem; color: rgba(255,255,255,0.85);
-    background: rgba(0,0,0,0.55); padding: 3px 10px; border-radius: 20px;
-    white-space: nowrap;
-  }
-  .thumb-dag .bg-pattern { background: rgba(0,0,0,0.3); }
+  .thumb-dag .bg-pattern { background: none; }
 
 </style>
 </head>
